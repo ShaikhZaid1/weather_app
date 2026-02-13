@@ -1,16 +1,18 @@
 # app.py - Weather Forecast App
 # Created for learning Python development from scratch!
-
 import streamlit as st
 import requests
 import os
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Try to load .env if it exists (for local development)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except:
+    pass  # On Streamlit Cloud, use secrets instead
 
-# Get API key
-API_KEY = os.getenv('OPENWEATHER_API_KEY')
+# Get API key from either .env or Streamlit secrets
+API_KEY = os.getenv('OPENWEATHER_API_KEY') or st.secrets.get("OPENWEATHER_API_KEY", "")
 
 # Configure the page
 st.set_page_config(
