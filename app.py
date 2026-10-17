@@ -46,7 +46,7 @@ if city:
         response = requests.get(url)
     
     # Check if the request was successful (status code 200 means success)
-    if response.status_code == 200:
+     if response.status_code == 200:
         # Parse JSON response into Python dictionary
         data = response.json()
         
