@@ -6,6 +6,7 @@ import os
 
 # Try to load .env if it exists (for local development)
 try:
+   
     from dotenv import load_dotenv
     load_dotenv()
 except:
